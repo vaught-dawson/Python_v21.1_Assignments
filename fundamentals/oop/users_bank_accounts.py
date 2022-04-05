@@ -34,7 +34,7 @@ class User:
 
         # Making sure the money was successfully withdrawn
         withdrawal_response = self.accounts[account_name].withdraw(amount)
-        if not withdrawal_response == None:
+        if withdrawal_response:
             other_user.make_deposit(amount, other_account_name)
         return self
 
