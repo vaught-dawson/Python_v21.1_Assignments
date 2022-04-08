@@ -1,0 +1,15 @@
+.content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.checkerboard {
+    display: flex;
+    flex-direction: row;
+}
+
+.square {
+    height: 100px;
+    width: 100px;
+}
