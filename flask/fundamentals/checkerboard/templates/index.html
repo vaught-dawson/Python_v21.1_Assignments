@@ -32,11 +32,9 @@
         {% for num1 in range(0, width) %}
 
         <div class="column">
-          {% for num2 in range(0, height) %} {% if (num2 + num1) % 2 == 0 %}
-          <div class="square bg-color-1"></div>
-          {% else %}
-          <div class="square bg-color-2"></div>
-          {% endif %} {% endfor %}
+          {% for num2 in range(0, height) %}
+          <div class="square bg-color-{{(num2 + num1) % 2 + 1}}"></div>
+          {% endfor %}
         </div>
 
         {% endfor %}
