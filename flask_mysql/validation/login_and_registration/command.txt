@@ -1,0 +1,1 @@
+pipenv install werkzeug==2.0.3 flask==2.0.3 flask-bcrypt pymysql
