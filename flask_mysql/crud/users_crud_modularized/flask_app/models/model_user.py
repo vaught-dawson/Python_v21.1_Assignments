@@ -12,6 +12,11 @@ class User:
         self.updated_at = data['updated_at']
 
     @classmethod
+    def save(cls, data) -> int:
+        query = "INSERT INTO users ( first_name , last_name , email , created_at, updated_at ) VALUES ( %(first_name)s , %(last_name)s , %(email)s , NOW() , NOW() );"
+        return connectToMySQL(app.DATABASE).query_db(query, data)
+
+    @classmethod
     def get_all(cls) -> list[object]:
         query = "SELECT * FROM users;"
         results = connectToMySQL(app.DATABASE).query_db(query)
@@ -27,11 +32,6 @@ class User:
             query, {'id': int(numId)})
         user = cls(result[0])
         return user
-
-    @classmethod
-    def save(cls, data) -> int:
-        query = "INSERT INTO users ( first_name , last_name , email , created_at, updated_at ) VALUES ( %(first_name)s , %(last_name)s , %(email)s , NOW() , NOW() );"
-        return connectToMySQL(app.DATABASE).query_db(query, data)
 
     @classmethod
     def update(cls, data) -> None:
